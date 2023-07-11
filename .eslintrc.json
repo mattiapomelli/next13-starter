@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
-  "plugins": ["import", "@typescript-eslint"],
+  "plugins": ["import", "@typescript-eslint", "unicorn"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["error"],
     /* Sort imports */
@@ -12,6 +12,13 @@
         "alphabetize": {
           "order": "asc"
         }
+      }
+    ],
+    /* Filenames kebab case */
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase"
       }
     ]
   },
