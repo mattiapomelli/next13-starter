@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
-  "plugins": ["import", "@typescript-eslint", "unicorn"],
+  "plugins": ["import", "@typescript-eslint", "unicorn", "tailwindcss"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["error"],
     /* Sort imports */
@@ -21,6 +21,13 @@
         "case": "kebabCase"
       }
     ]
+  },
+  "settings": {
+    /* Support tailwind rules inside clsx */
+    "tailwindcss": {
+      "callees": ["clsx"],
+      "config": "tailwind.config.js"
+    }
   },
   /* No default export */
   "overrides": [
