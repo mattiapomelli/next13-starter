@@ -3,6 +3,7 @@
   "plugins": ["import", "@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["error"],
+    /* Sort imports */
     "import/order": [
       "error",
       {
@@ -14,6 +15,7 @@
       }
     ]
   },
+  /* No default export */
   "overrides": [
     {
       "files": ["./src/**/*.ts", "./src/**/*.tsx"],
