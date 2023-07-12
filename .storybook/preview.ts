@@ -12,6 +12,16 @@ const preview: Preview = {
       },
     },
   },
+  globalTypes: {
+    dataThemes: {
+      defaultValue: {
+        list: [
+          { name: "Light", dataTheme: "light", color: "#ffffff" },
+          { name: "Dark", dataTheme: "dark", color: "#000000" },
+        ],
+      },
+    },
+  },
 };
 
 export default preview;

@@ -29,6 +29,9 @@ dependencies:
   next:
     specifier: 13.4.9
     version: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
+  next-themes:
+    specifier: ^0.2.1
+    version: 0.2.1(next@13.4.9)(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: 8.4.25
     version: 8.4.25
@@ -91,6 +94,9 @@ devDependencies:
   storybook:
     specifier: ^7.0.27
     version: 7.0.27
+  storybook-addon-data-theme-switcher:
+    specifier: ^0.1.7
+    version: 0.1.7(@storybook/components@7.0.27)(@storybook/manager-api@7.0.27)(@storybook/preview-api@7.0.27)(@storybook/theming@7.0.27)(@storybook/types@7.0.27)(react-dom@18.2.0)(react@18.2.0)
 
 packages:
 
@@ -8707,6 +8713,18 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
+  /next-themes@0.2.1(next@13.4.9)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /next@13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-vtefFm/BWIi/eWOqf1GsmKG3cjKw1k3LjuefKRcL3iiLl3zWzFdPG3as6xtxrGO6gwTzzaO1ktL4oiHt/uvTjA==}
     engines: {node: '>=16.8.0'}
@@ -10277,6 +10295,33 @@ packages:
 
   /store2@2.14.2:
     resolution: {integrity: sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==}
+    dev: true
+
+  /storybook-addon-data-theme-switcher@0.1.7(@storybook/components@7.0.27)(@storybook/manager-api@7.0.27)(@storybook/preview-api@7.0.27)(@storybook/theming@7.0.27)(@storybook/types@7.0.27)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-UsUQjvah+Sq2UXVluofJqhrMshXdb20BUX4MsMDTlmh9XtF3rAJ8Wg2GZSVysZdX/jdLSEpdP6ln8c5i+g4RvA==}
+    engines: {node: '>=18.0.0'}
+    requiresBuild: true
+    peerDependencies:
+      '@storybook/components': ^7.0.2
+      '@storybook/manager-api': ^7.0.2
+      '@storybook/preview-api': ^7.0.2
+      '@storybook/theming': ^7.0.2
+      '@storybook/types': ^7.0.2
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@storybook/components': 7.0.27(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/manager-api': 7.0.27(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/preview-api': 7.0.27
+      '@storybook/theming': 7.0.27(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/types': 7.0.27
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: true
 
   /storybook@7.0.27:
