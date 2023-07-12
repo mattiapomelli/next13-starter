@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
+  "extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended", "plugin:storybook/recommended"],
   "plugins": ["import", "@typescript-eslint", "unicorn", "tailwindcss"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["error"],
@@ -35,6 +35,12 @@
       "files": ["./src/**/*.ts", "./src/**/*.tsx"],
       "rules": {
         "import/no-default-export": "error"
+      }
+    },
+    {
+      "files": ["./src/**/*.stories.tsx"],
+      "rules": {
+        "import/no-default-export": "off"
       }
     },
     {
