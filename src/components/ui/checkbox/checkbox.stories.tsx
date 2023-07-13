@@ -1,68 +1,75 @@
+import { useState } from "react";
+
 import { Checkbox } from "./checkbox";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
+  decorators: [(Story) => <Story />],
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Checkbox>;
 
-const render = (props: Story["args"]) => <Checkbox {...props} />;
+const Template = (props: Story["args"]) => {
+  const [checked, setChecked] = useState(false);
+
+  return <Checkbox {...props} checked={checked} onValueChange={setChecked} />;
+};
 
 export const Primary: Story = {
-  render,
+  render: Template,
   args: {
     color: "primary",
   },
 };
 
 export const Secondary: Story = {
-  render,
+  render: Template,
   args: {
     color: "secondary",
   },
 };
 
 export const Accent: Story = {
-  render,
+  render: Template,
   args: {
     color: "accent",
   },
 };
 
 export const Tiny: Story = {
-  render,
+  render: Template,
   args: {
     size: "xs",
   },
 };
 
 export const Small: Story = {
-  render,
+  render: Template,
   args: {
     size: "sm",
   },
 };
 
 export const Normal: Story = {
-  render,
+  render: Template,
   args: {
     size: "md",
   },
 };
 
 export const Large: Story = {
-  render,
+  render: Template,
   args: {
     size: "lg",
   },
 };
 
 export const WithLabelTiny: Story = {
-  render,
+  render: Template,
   args: {
     label: "Checked",
     labelSize: "xs",
@@ -70,7 +77,7 @@ export const WithLabelTiny: Story = {
 };
 
 export const WithLabelSmall: Story = {
-  render,
+  render: Template,
   args: {
     label: "Checked",
     labelSize: "sm",
@@ -78,7 +85,7 @@ export const WithLabelSmall: Story = {
 };
 
 export const WithLabelNormal: Story = {
-  render,
+  render: Template,
   args: {
     label: "Checked",
     labelSize: "md",
@@ -86,7 +93,7 @@ export const WithLabelNormal: Story = {
 };
 
 export const WithLabelLarge: Story = {
-  render,
+  render: Template,
   args: {
     label: "Checked",
     labelSize: "lg",
@@ -94,14 +101,14 @@ export const WithLabelLarge: Story = {
 };
 
 export const Disabled: Story = {
-  render,
+  render: Template,
   args: {
     disabled: true,
   },
 };
 
 export const DisabledWithLabel: Story = {
-  render,
+  render: Template,
   args: {
     label: "Checked",
     disabled: true,
