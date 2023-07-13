@@ -60,7 +60,7 @@ const textColorVariants = cva("", {
   },
 });
 
-export interface BaseButtonProps
+interface BaseButtonProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color">,
     VariantProps<typeof buttonVariants> {
   children?: ReactNode;
