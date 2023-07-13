@@ -50,6 +50,7 @@
     "eslint-plugin-unicorn": "^47.0.0",
     "prettier": "^3.0.0",
     "storybook": "^7.0.27",
-    "storybook-addon-data-theme-switcher": "^0.1.7"
+    "storybook-addon-data-theme-switcher": "^0.1.7",
+    "tailwindcss-radix": "^2.8.0"
   }
 }

@@ -21,7 +21,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("daisyui")],
+  plugins: [require("@tailwindcss/forms"), require("tailwindcss-radix")(), require("daisyui")],
   daisyui: {
     themes: [
       {
