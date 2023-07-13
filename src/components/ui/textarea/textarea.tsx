@@ -28,7 +28,7 @@ const textAreaVariants = cva(
   },
 );
 
-interface BaseTextAreaProps
+export interface TextAreaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement>,
     VariantProps<typeof textAreaVariants> {
   label?: string;
@@ -37,10 +37,6 @@ interface BaseTextAreaProps
   controlId?: string;
   onValueChange?: (value: string) => void;
 }
-
-export type TextAreaProps = BaseTextAreaProps & {
-  ref?: Ref<HTMLTextAreaElement>;
-};
 
 export const TextArea = forwardRef(
   (

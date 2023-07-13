@@ -1,9 +1,8 @@
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import * as Dialog from "@radix-ui/react-dialog";
 import { clsx } from "clsx";
 import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
-
-import CrossIcon from "@/icons/cross.svg";
 
 export interface BaseModalProps {
   open: boolean;
@@ -48,7 +47,7 @@ export const Modal = ({ children, open, onClose, title, className }: ModalProps)
                 "focus-visible:ring-primary/20",
               )}
             >
-              <CrossIcon className="h-4 w-4 text-base-content" />
+              <XMarkIcon className="h-5 w-5 text-base-content" />
             </Dialog.Close>
             {title && <h2 className="mb-4 text-center text-xl font-bold">{title}</h2>}
             {children}
