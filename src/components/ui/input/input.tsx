@@ -56,7 +56,7 @@ const iconVariants = ({ position }: { position: "left" | "right" }) =>
     },
   });
 
-export interface BaseInputProps
+interface BaseInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size">,
     VariantProps<ReturnType<typeof inputVariants>> {
   placeholder?: string;

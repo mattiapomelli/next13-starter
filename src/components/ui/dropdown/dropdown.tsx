@@ -32,7 +32,7 @@ export const WrappedLink = forwardRef<HTMLAnchorElement, WrappedLinkProps>((prop
 
 WrappedLink.displayName = "WrappedLink";
 
-interface DropdownItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface DropdownItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   as?: ElementType;
   onClick?: () => void;
 }
