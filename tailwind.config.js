@@ -5,7 +5,13 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        "base-content-neutral": "hsl(var(--bc) / 0.6)",
+      },
+    },
+  },
   plugins: [require("@tailwindcss/forms"), require("daisyui")],
   daisyui: {
     themes: [
