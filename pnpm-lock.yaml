@@ -112,6 +112,9 @@ devDependencies:
   eslint-plugin-unicorn:
     specifier: ^47.0.0
     version: 47.0.0(eslint@8.44.0)
+  next-sitemap:
+    specifier: ^4.1.8
+    version: 4.1.8(next@13.4.9)
   prettier:
     specifier: ^3.0.0
     version: 3.0.0
@@ -2584,6 +2587,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@corex/deepmerge@4.0.43:
+    resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
+    dev: true
 
   /@discoveryjs/json-ext@0.5.7:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -9490,6 +9497,20 @@ packages:
 
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+    dev: true
+
+  /next-sitemap@4.1.8(next@13.4.9):
+    resolution: {integrity: sha512-XAXpBHX4o89JfMgvrm0zimlZwpu2iBPXHpimJMUrqOZSc4C2oB1Lv89mxuVON9IE8HOezaM+w4GjJxcYCuGPTQ==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 4.0.43
+      '@next/env': 13.4.9
+      fast-glob: 3.3.0
+      minimist: 1.2.8
+      next: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
     dev: true
 
   /next-themes@0.2.1(next@13.4.9)(react-dom@18.2.0)(react@18.2.0):
