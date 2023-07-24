@@ -1,7 +1,6 @@
 "use client";
 
-// import MoonIcon from "@icons/moon.svg";
-// import SunIcon from "@icons/sun.svg";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "next-themes";
 
 export const ThemeToggle = () => {
@@ -9,10 +8,11 @@ export const ThemeToggle = () => {
 
   return (
     <button
-      className="rounded-sm p-0.5 focus:outline-none focus:ring-primary/50 focus-visible:ring-4"
+      className="rounded-sm p-0.5 focus:outline-none focus:ring-primary/30 focus-visible:ring-4"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "dark" ? "Sun" : "Moon"}
+      <SunIcon className="h-6 w-6 dark:hidden" />
+      <MoonIcon className="hidden h-6 w-6 dark:block" />
     </button>
   );
 };

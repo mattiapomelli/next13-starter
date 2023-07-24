@@ -1,5 +1,4 @@
 import { RadioGroup as BaseRadioGroup } from "@headlessui/react";
-import React from "react";
 
 import { RadioItem } from "./radio-item";
 

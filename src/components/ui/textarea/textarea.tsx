@@ -1,6 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import React, { forwardRef, Ref, TextareaHTMLAttributes } from "react";
+import { forwardRef, Ref, TextareaHTMLAttributes } from "react";
 
 import { Label } from "@/components/ui/label";
 
