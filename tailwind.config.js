@@ -16,12 +16,14 @@ module.exports = {
           "100%": { opacity: "1" },
         },
       },
-      animation: {
-        "fade-in": "fade-in 150ms ease-in-out",
-      },
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("tailwindcss-radix")(), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("tailwindcss-radix")(),
+    require("tailwindcss-animate"),
+    require("daisyui"),
+  ],
   daisyui: {
     themes: [
       {

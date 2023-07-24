@@ -11,7 +11,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { clsx } from "clsx";
 import { ReactNode, useEffect, useState } from "react";
 
-const tooltipVariants = cva("rounded-btn z-30 max-w-[90vw] animate-fade-in px-3 py-2", {
+const tooltipVariants = cva("rounded-btn z-30 max-w-[90vw] px-3 py-2 animate-in fade-in", {
   variants: {
     color: {
       primary: "bg-primary fill-primary text-primary-content",
