@@ -12,7 +12,7 @@ export const Label = ({ children, htmlFor, className, as: Tag = "label" }: Label
     <Tag
       className={twMerge(
         clsx(
-          "mb-1 flex items-center gap-2 text-sm font-semibold",
+          "mb-1 flex w-full items-center gap-2 text-sm font-semibold",
           { "cursor-pointer": htmlFor },
           className,
         ),

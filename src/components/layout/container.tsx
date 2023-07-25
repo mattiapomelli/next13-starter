@@ -1,5 +1,6 @@
 import { clsx } from "clsx";
 import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface ContainerProps {
   children: ReactNode;
@@ -7,5 +8,7 @@ interface ContainerProps {
 }
 
 export const Container = ({ children, className }: ContainerProps) => {
-  return <div className={clsx("mx-auto max-w-6xl px-4 sm:px-6", className)}>{children}</div>;
+  return (
+    <div className={twMerge(clsx("mx-auto max-w-6xl px-4 sm:px-6", className))}>{children}</div>
+  );
 };
