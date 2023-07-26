@@ -1,3 +1,5 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import Link from "next/link";
 
 import { Logo } from "@/components/logo";
@@ -5,17 +7,25 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 import { Container } from "./container";
+import { UserDropdown } from "./user-dropdown";
 
-export const Navbar = () => {
+export const Navbar = async () => {
+  const supabase = createServerComponentClient({ cookies });
+  const user = (await supabase.auth.getSession()).data.session?.user;
+
   return (
     <header className="flex h-20 items-center">
       <Container className="flex w-full items-center justify-between">
         <Logo />
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Link href="/signup">
-            <Button>Get started</Button>
-          </Link>
+          {user ? (
+            <UserDropdown user={user} />
+          ) : (
+            <Link href="/signup">
+              <Button>Get started</Button>
+            </Link>
+          )}
         </div>
       </Container>
     </header>

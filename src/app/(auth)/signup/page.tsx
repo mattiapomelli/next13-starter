@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -13,7 +14,7 @@ const signupSchema = z
   .object({
     email: z.string().email(),
     username: z.string().min(1, { message: "Required" }),
-    password: z.string().min(1, { message: "Required" }),
+    password: z.string().min(6),
     confirmPassword: z.string().min(1, { message: "Required" }),
   })
   .refine((data) => data.password === data.confirmPassword, {
@@ -33,8 +34,18 @@ export default function SignupPage() {
     resolver: zodResolver(signupSchema),
   });
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const supabase = createClientComponentClient();
+
+  const onSubmit = handleSubmit(async ({ email, password }) => {
+    const res = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+    console.log("Res: ", res);
+    // router.refresh()
     reset();
   });
 
