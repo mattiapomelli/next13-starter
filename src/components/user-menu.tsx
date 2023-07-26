@@ -23,6 +23,7 @@ export const UserMenu = ({ user }: UserMenuProps) => {
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
+    router.push("/login");
     router.refresh();
   };
 

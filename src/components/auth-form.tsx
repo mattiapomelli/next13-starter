@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,7 +17,6 @@ const authSchema = z.object({
 type AuthData = z.infer<typeof authSchema>;
 
 export const AuthForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -25,14 +25,18 @@ export const AuthForm = () => {
     resolver: zodResolver(authSchema),
   });
 
-  const supabase = createClientComponentClient();
+  const [isLoading, setIsLoading] = useState(false);
+  const searchParams = useSearchParams();
 
   const onSubmit = handleSubmit(async ({ email }) => {
     setIsLoading(true);
+
+    const supabase = createClientComponentClient();
+    const from = searchParams?.get("from") || "/";
     await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: "http://localhost:3000/api/auth/callback",
+        emailRedirectTo: `http://localhost:3000/api/auth/callback?from=${encodeURIComponent(from)}`,
       },
     });
 

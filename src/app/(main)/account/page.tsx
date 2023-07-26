@@ -7,5 +7,5 @@ export default async function AccountPage() {
 
   if (!user) redirect("/login");
 
-  return <div className="w-full max-w-sm">Account: {user?.email}</div>;
+  return <div className="w-full max-w-sm">Account: {user.email}</div>;
 }
