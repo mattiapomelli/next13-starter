@@ -36,7 +36,9 @@ export const AuthForm = () => {
     await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `http://localhost:3000/api/auth/callback?from=${encodeURIComponent(from)}`,
+        emailRedirectTo: `${window.location.origin}/api/auth/callback?from=${encodeURIComponent(
+          from,
+        )}`,
       },
     });
 
