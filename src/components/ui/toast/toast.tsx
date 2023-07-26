@@ -1,8 +1,11 @@
+"use client";
+
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { VariantProps, cva } from "class-variance-authority";
 import { clsx } from "clsx";
 import { ComponentPropsWithoutRef, ElementRef, ReactElement, forwardRef } from "react";
+import * as React from "react";
 
 const ToastProvider = ToastPrimitives.Provider;
 

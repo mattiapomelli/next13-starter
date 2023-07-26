@@ -1,5 +1,7 @@
+"use client";
+
 // Inspired by https://github.com/shadcn-ui/taxonomy/blob/main/components/ui/use-toast.ts
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 import { ToastActionElement, type ToastProps } from "./toast";
 
@@ -137,7 +139,7 @@ const dispatch = (action: Action) => {
 
 interface Toast extends Omit<ToasterToast, "id"> {}
 
-function toast({ ...props }: Toast) {
+const toast = ({ ...props }: Toast) => {
   const id = genId();
 
   const update = (props: ToasterToast) =>
@@ -164,7 +166,7 @@ function toast({ ...props }: Toast) {
     dismiss,
     update,
   };
-}
+};
 
 const useToast = () => {
   const [state, setState] = useState<State>(memoryState);
