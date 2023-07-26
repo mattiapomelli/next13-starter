@@ -3,17 +3,14 @@
 // Inspired by https://github.com/shadcn-ui/taxonomy/blob/main/components/ui/use-toast.ts
 import { useState, useEffect } from "react";
 
-import { ToastActionElement, type ToastProps } from "./toast";
+import { type ToastProps } from "./toast";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
 
-type ToasterToast = ToastProps & {
+interface ToasterToast extends ToastProps {
   id: string;
-  title?: React.ReactNode;
-  description?: React.ReactNode;
-  action?: ToastActionElement;
-};
+}
 
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",

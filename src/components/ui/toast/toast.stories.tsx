@@ -1,6 +1,5 @@
 import { Button } from "../button";
 
-import { ToastAction, ToastActionElement } from "./toast";
 import { Toast } from "./toast";
 import { Toaster } from "./toaster";
 import { toast } from "./use-toast";
@@ -13,9 +12,7 @@ const meta: Meta<typeof Toast> = {
 
 export default meta;
 
-type Story = StoryObj<{
-  action?: ToastActionElement;
-}>;
+type Story = StoryObj<typeof Toast>;
 
 const render = (props: Story["args"]) => {
   const openToast = () => {
@@ -23,7 +20,6 @@ const render = (props: Story["args"]) => {
       title: `Toast title`,
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas officia aliquid modi.",
-      variant: "default",
       action: props?.action,
     });
   };
@@ -44,11 +40,9 @@ export const WithAction: Story = {
   render,
   args: {
     action: (
-      <ToastAction altText="Action" asChild>
-        <Button onClick={() => console.log("Undone")} size="xs">
-          Undo
-        </Button>
-      </ToastAction>
+      <Button onClick={() => console.log("Undone")} size="xs">
+        Undo
+      </Button>
     ),
   },
 };
