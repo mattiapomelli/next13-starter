@@ -6,8 +6,9 @@ import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
+import { UserMenu } from "../user-menu";
+
 import { Container } from "./container";
-import { UserDropdown } from "./user-dropdown";
 
 export const Navbar = async () => {
   const supabase = createServerComponentClient({ cookies });
@@ -20,7 +21,7 @@ export const Navbar = async () => {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           {user ? (
-            <UserDropdown user={user} />
+            <UserMenu user={user} />
           ) : (
             <Link href="/signup">
               <Button>Get started</Button>

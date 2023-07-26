@@ -4,13 +4,13 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 
-interface UserDropdownProps {
+interface UserMenuProps {
   user: User;
 }
 
-export const UserDropdown = ({ user }: UserDropdownProps) => {
+export const UserMenu = ({ user }: UserMenuProps) => {
   const router = useRouter();
   const supabase = createClientComponentClient();
 

@@ -1,85 +1,18 @@
-"use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
-const signupSchema = z
-  .object({
-    email: z.string().email(),
-    username: z.string().min(1, { message: "Required" }),
-    password: z.string().min(6),
-    confirmPassword: z.string().min(1, { message: "Required" }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords must match",
-    path: ["confirmPassword"],
-  });
-
-type SignupData = z.infer<typeof signupSchema>;
+import { AuthForm } from "@/components/auth-form";
 
 export default function SignupPage() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<SignupData>({
-    resolver: zodResolver(signupSchema),
-  });
-
-  const supabase = createClientComponentClient();
-
-  const onSubmit = handleSubmit(async ({ email, password }) => {
-    const res = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
-      },
-    });
-    console.log("Res: ", res);
-    // router.refresh()
-    reset();
-  });
-
   return (
     <div className="w-full max-w-sm">
-      <h1 className="mb-4 text-center text-3xl font-bold">Signup</h1>
-      <form className="flex w-full flex-col gap-3" onSubmit={onSubmit}>
-        <Input label="Email" type="text" {...register("email")} error={errors.email?.message} />
-        <Input
-          label="Username"
-          type="text"
-          {...register("username")}
-          error={errors.username?.message}
-        />
-        <Input
-          label="Password"
-          type="password"
-          {...register("password")}
-          error={errors.password?.message}
-        />
-        <Input
-          label="Confirm Password"
-          type="password"
-          {...register("confirmPassword")}
-          error={errors.confirmPassword?.message}
-        />
-        <Button className="mt-2">Sign up</Button>
-        <p className="text-center text-sm">
-          Don&apos;t have an account?{" "}
-          <Link href="/login" className="text-primary hover:underline">
-            Login
-          </Link>
-        </p>
-      </form>
+      <h1 className="mb-4 text-center text-3xl font-bold">Sign up</h1>
+      <AuthForm />
+      <p className="mt-4 text-center text-sm">
+        Already have an account?{" "}
+        <Link href="/login" className="text-primary hover:underline">
+          Sign in
+        </Link>
+      </p>
     </div>
   );
 }
