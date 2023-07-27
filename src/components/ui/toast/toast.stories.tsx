@@ -20,7 +20,7 @@ const render = (props: Story["args"]) => {
       title: `Toast title`,
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas officia aliquid modi.",
-      action: props?.action,
+      ...props,
     });
   };
 
@@ -44,5 +44,26 @@ export const WithAction: Story = {
         Undo
       </Button>
     ),
+  },
+};
+
+export const Success: Story = {
+  render,
+  args: {
+    type: "success",
+  },
+};
+
+export const Warning: Story = {
+  render,
+  args: {
+    type: "warning",
+  },
+};
+
+export const Error: Story = {
+  render,
+  args: {
+    type: "error",
   },
 };

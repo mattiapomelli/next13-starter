@@ -1,6 +1,6 @@
 "use client";
 
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import { CheckIcon, XMarkIcon, ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { clsx } from "clsx";
 import { ComponentPropsWithoutRef, ElementRef, ReactNode, Ref, forwardRef } from "react";
@@ -27,13 +27,17 @@ const ToastViewport = forwardRef<
 
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
 
-interface ToastProps extends ToastPrimitives.ToastProps {
+interface ToastProps extends Omit<ToastPrimitives.ToastProps, "type"> {
   description?: string;
-  action: ReactNode;
+  action?: ReactNode;
+  type?: "success" | "warning" | "error";
 }
 
 const Toast = forwardRef(
-  ({ className, title, description, action, ...props }: ToastProps, ref: Ref<HTMLLIElement>) => {
+  (
+    { className, title, description, action, type, ...props }: ToastProps,
+    ref: Ref<HTMLLIElement>,
+  ) => {
     return (
       <ToastPrimitives.Root
         ref={ref}
@@ -51,9 +55,22 @@ const Toast = forwardRef(
         )}
         {...props}
       >
-        {/* <div className="rounded-full bg-success p-1">
-              <CheckIcon className="h-5 w-5 text-success-content" />
-            </div> */}
+        {type && (
+          <div
+            className={clsx(
+              "flex h-9 w-9 shrink-0 items-center justify-center rounded-full",
+              { "bg-success": type === "success" },
+              { "bg-warning": type === "warning" },
+              { "bg-error": type === "error" },
+            )}
+          >
+            {type === "success" && <CheckIcon className="h-5 w-5 text-success-content" />}
+            {type === "warning" && (
+              <ExclamationTriangleIcon className="h-6 w-6 text-warning-content" />
+            )}
+            {type === "error" && <ExclamationTriangleIcon className="h-6 w-6 text-error-content" />}
+          </div>
+        )}
         <div className="flex flex-col gap-1">
           {title && (
             <ToastPrimitives.Title className={clsx("text-sm font-bold", className)}>
@@ -68,9 +85,11 @@ const Toast = forwardRef(
             </ToastPrimitives.Description>
           )}
         </div>
-        <ToastPrimitives.Action altText="Action" asChild>
-          {action}
-        </ToastPrimitives.Action>
+        {action && (
+          <ToastPrimitives.Action altText="Action" asChild>
+            {action}
+          </ToastPrimitives.Action>
+        )}
         <ToastPrimitives.Close
           className={clsx(
             "absolute right-2 top-2",
