@@ -55,35 +55,39 @@ const Toast = forwardRef(
         )}
         {...props}
       >
-        {type && (
-          <div
-            className={clsx(
-              "flex h-9 w-9 shrink-0 items-center justify-center rounded-full",
-              { "bg-success": type === "success" },
-              { "bg-warning": type === "warning" },
-              { "bg-error": type === "error" },
-            )}
-          >
-            {type === "success" && <CheckIcon className="h-5 w-5 text-success-content" />}
-            {type === "warning" && (
-              <ExclamationTriangleIcon className="h-6 w-6 text-warning-content" />
-            )}
-            {type === "error" && <ExclamationTriangleIcon className="h-6 w-6 text-error-content" />}
-          </div>
-        )}
-        <div className="flex flex-col gap-1">
-          {title && (
-            <ToastPrimitives.Title className={clsx("text-sm font-bold", className)}>
-              {title}
-            </ToastPrimitives.Title>
-          )}
-          {description && (
-            <ToastPrimitives.Description
-              className={clsx("text-sm text-base-content-neutral", className)}
+        <div className="flex items-center gap-4">
+          {type && (
+            <div
+              className={clsx(
+                "flex h-9 w-9 shrink-0 items-center justify-center rounded-full",
+                { "bg-success": type === "success" },
+                { "bg-warning": type === "warning" },
+                { "bg-error": type === "error" },
+              )}
             >
-              {description}
-            </ToastPrimitives.Description>
+              {type === "success" && <CheckIcon className="h-5 w-5 text-success-content" />}
+              {type === "warning" && (
+                <ExclamationTriangleIcon className="h-6 w-6 text-warning-content" />
+              )}
+              {type === "error" && (
+                <ExclamationTriangleIcon className="h-6 w-6 text-error-content" />
+              )}
+            </div>
           )}
+          <div className="flex flex-col gap-1">
+            {title && (
+              <ToastPrimitives.Title className={clsx("text-sm font-bold", className)}>
+                {title}
+              </ToastPrimitives.Title>
+            )}
+            {description && (
+              <ToastPrimitives.Description
+                className={clsx("text-sm text-base-content-neutral", className)}
+              >
+                {description}
+              </ToastPrimitives.Description>
+            )}
+          </div>
         </div>
         {action && (
           <ToastPrimitives.Action altText="Action" asChild>

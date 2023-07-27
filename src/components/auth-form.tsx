@@ -9,6 +9,7 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/toast";
 
 const authSchema = z.object({
   email: z.string().email(),
@@ -33,7 +34,7 @@ export const AuthForm = () => {
 
     const supabase = createClientComponentClient();
     const from = searchParams?.get("from") || "/";
-    await supabase.auth.signInWithOtp({
+    const res = await supabase.auth.signInWithOtp({
       email,
       options: {
         emailRedirectTo: `${window.location.origin}/api/auth/callback?from=${encodeURIComponent(
@@ -41,6 +42,20 @@ export const AuthForm = () => {
         )}`,
       },
     });
+
+    if (res.error) {
+      toast({
+        type: "error",
+        title: "Something went wrong",
+        description: "Please retry in a few minutes",
+      });
+    } else {
+      toast({
+        type: "success",
+        title: "Check your email",
+        description: "We sent you a login link. Be sure to check your spam too.",
+      });
+    }
 
     setIsLoading(false);
   });
