@@ -2,6 +2,10 @@ import Link from "next/link";
 
 import { AuthForm } from "@/components/auth-form";
 
+export const metadata = {
+  title: "Signup",
+};
+
 export default function SignupPage() {
   return (
     <div className="w-full max-w-sm">
