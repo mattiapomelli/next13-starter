@@ -5,6 +5,8 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 
+import { Database } from "@/types/supabase";
+
 import {
   Dropdown,
   DropdownContent,
@@ -19,7 +21,7 @@ interface UserMenuProps {
 
 export const UserMenu = ({ user }: UserMenuProps) => {
   const router = useRouter();
-  const supabase = createClientComponentClient();
+  const supabase = createClientComponentClient<Database>();
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();

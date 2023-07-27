@@ -9,7 +9,8 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "generate-types": "npx supabase gen types typescript --project-id $SUPABASE_PROJECT_REF --schema public > src/types/supabase.ts"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
@@ -59,6 +60,7 @@
     "prettier": "^3.0.0",
     "storybook": "^7.0.27",
     "storybook-addon-data-theme-switcher": "^0.1.7",
+    "supabase": "^1.82.2",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animate": "^1.0.6",
     "tailwindcss-radix": "^2.8.0",

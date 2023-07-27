@@ -10,6 +10,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/toast";
+import { Database } from "@/types/supabase";
 
 const authSchema = z.object({
   email: z.string().email(),
@@ -32,7 +33,7 @@ export const AuthForm = () => {
   const onSubmit = handleSubmit(async ({ email }) => {
     setIsLoading(true);
 
-    const supabase = createClientComponentClient();
+    const supabase = createClientComponentClient<Database>();
     const from = searchParams?.get("from") || "/";
     const res = await supabase.auth.signInWithOtp({
       email,
