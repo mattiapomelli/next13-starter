@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const siteConfig = {
+const siteConfig = {
   name: "My App",
   description: "This is my app",
   url: "https://localhost:3000",
